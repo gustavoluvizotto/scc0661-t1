@@ -36,7 +36,7 @@
       </toolsSet>
       <compileType>
         <cTool>
-          <commandLine>-Wall -ansi</commandLine>
+          <commandLine>-Wall -Werror -ansi -lm</commandLine>
         </cTool>
       </compileType>
       <item path="main.c" ex="false" tool="0" flavor2="0">
