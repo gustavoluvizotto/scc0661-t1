@@ -39,10 +39,9 @@ int main() {
     fread(&imageheader, sizeof (IMAGEHEADER), 1, fp);
     printf("%dx%d\n", imageheader.largura, imageheader.altura);
 
-    m = (RGB **) malloc(imageheader.altura * sizeof (RGB));
+    m = (RGB **) malloc(imageheader.altura * sizeof (RGB *) * 1.1);
     for (i = 0; i < imageheader.altura; i++)
         m[i] = (RGB *) malloc(imageheader.largura * sizeof (RGB) * 1.1);
-    printf("Alocou RGB");
     for (i = 0; i < imageheader.altura; i++) {
         for (j = 0; j < imageheader.largura; j++) {
             fread(&m[i][j].red, 1, 1, fp);
@@ -50,7 +49,6 @@ int main() {
             fread(&m[i][j].blue, 1, 1, fp);
         }
     }
-    printf("depois de ler RGB");
     fclose(fp);
     return (EXIT_SUCCESS);
 }
